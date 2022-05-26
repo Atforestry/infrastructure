@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS Prediction (
   prediction VARCHAR(10) NOT NULL,
   predictionDatetime DATETIME NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
-  updated_at TIMESTAMP NOT NULL DEFAULT NOW
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
