@@ -3,7 +3,7 @@ create-infrastructure:
     --region "us-central1" \
     --machine-type "e2-standard-2" --disk-type "pd-standard" --disk-size "500" \
     --num-nodes "1" --node-locations "us-central1-b","us-central1-c"
-	gcloud artifacts repositories create "atforestry" --repository-format=Docker --location=us-central1
+	gcloud artifacts repositories create "atforestry-repo" --repository-format=Docker --location=us-central1
 	kubectl apply -f ./yamls
 
 deploy-services:
