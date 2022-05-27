@@ -11,32 +11,45 @@
 
 <br/><br/><br/>
 
-# makefile targets
-Create the infrastructure and deploy for the first time
+# Using makefile
+To create the infrastructure and deploy, run:
 
 
-    $ create-infrastructure
+    $ make
+
+or
 
 
-Deploy data, model, front-end, monitoring services
-
-
-    $ deploy-services
-
-
-Clear prices database 
-
-
-    $ reset-db
+    $ make create-infrastructure
     
 
-Terminate all services
+<br/><br/><br/>
+
+To deploy data, model, front-end, monitoring services, run:
 
 
-    $ delete-services
+    $ make deploy-services
 
 
-Terminate the cluster
+To clear predictions database, run: 
+
+
+    $ make reset-db
+    
+
+To terminate all services, run:
+
+
+    $ make delete-services
+
+
+To terminate the cluster, run:
 
 
     $ delete-cluster
+
+
+To switch to working on atforestry-cluster, run:
+
+
+    $ make auth
