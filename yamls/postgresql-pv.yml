@@ -1,7 +1,7 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
-  name: traderbot-regionalpd-storageclass
+  name: time-predictions-regionalpd-storageclass
 provisioner: kubernetes.io/gce-pd
 parameters:
   type: pd-standard
@@ -16,9 +16,9 @@ allowedTopologies:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: traderbot-postgresql-pv
+  name: atforestry-postgresql-pv
 spec:
-  storageClassName: traderbot-regionalpd-storageclass
+  storageClassName: time-predictions-regionalpd-storageclass
   accessModes:
     - ReadWriteOnce
   resources:
