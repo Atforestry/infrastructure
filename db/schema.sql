@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS Prediction (
   longitude double precision NOT NULL,
   latitude double precision NOT NULL,
   prediction VARCHAR(10) NOT NULL,
-  predictionDatetime DATETIME NOT NULL,
+  predictionTimestamp TIMESTAMP NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW(),
   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
