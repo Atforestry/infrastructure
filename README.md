@@ -79,4 +79,4 @@ To switch to working on atforestry-cluster, run:
 
 * **user-query** service:
 
-    front-end query to check if an area (identified by latitude&longitude) is undergoing deforestration
+    front-end query to check if an area (identified by latitude&longitude) is predicted by our model to be suffering from deforestration
