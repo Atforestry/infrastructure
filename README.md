@@ -46,7 +46,7 @@ To terminate all services, run:
 To terminate the cluster, run:
 
 
-    $ delete-cluster
+    $ make delete-cluster
 
 
 To switch to working on atforestry-cluster, run:
