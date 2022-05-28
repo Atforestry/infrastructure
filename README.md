@@ -53,3 +53,26 @@ To switch to working on atforestry-cluster, run:
 
 
     $ make auth
+
+<br/><br/><br/>
+
+# List of deployed Atforestry services:
+* **batch-run** daemon:
+
+    periodically (once a month) call **fetch-data** 
+
+* **fetch-data** service:
+
+    get last month data from planet using planet-api and call **model-predict**
+
+* **model-predict** service:
+
+    classify each image to a cover-land class and push the result to predictions data base file
+
+* **postgres** service:
+
+    manage sql data base 
+
+* **grafana** service:
+
+    monitor Kubernetes performance
