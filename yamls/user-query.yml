@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: boilerplate
+ name: user-query
 spec:
  strategy:
    rollingUpdate:
@@ -11,15 +11,15 @@ spec:
  replicas: 1
  selector:
    matchLabels:
-     app: boilerplate
+     app: user-query
  template:
    metadata:
      labels:
-       app: boilerplate
+       app: user-query
    spec:
      containers:
-       - name: boilerplate
-         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/boilerplate:latest
+       - name: user-query
+         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/user-query:latest
          resources:
            limits:
              cpu: "1"
@@ -28,5 +28,15 @@ spec:
              cpu: "1"
              memory: "4Gi"
          ports:
-           - containerPort: 8080
-        
+           - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-query
+spec:
+  ports:
+    - port: 8000
+  selector:
+    app: user-query
+  type: LoadBalancer     

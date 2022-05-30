@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: boilerplate
+ name: model-predict
 spec:
  strategy:
    rollingUpdate:
@@ -11,15 +11,15 @@ spec:
  replicas: 1
  selector:
    matchLabels:
-     app: boilerplate
+     app: model-predict
  template:
    metadata:
      labels:
-       app: boilerplate
+       app: model-predict
    spec:
      containers:
        - name: boilerplate
-         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/boilerplate:latest
+         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/model-predict:latest
          resources:
            limits:
              cpu: "1"
@@ -28,5 +28,16 @@ spec:
              cpu: "1"
              memory: "4Gi"
          ports:
-           - containerPort: 8080
+           - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: model-predict
+spec:
+  ports:
+    - port: 8000
+  selector:
+    app: model-predict
+  clusterIP: None
         

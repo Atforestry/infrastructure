@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: boilerplate
+ name: batch-run
 spec:
  strategy:
    rollingUpdate:
@@ -11,15 +11,15 @@ spec:
  replicas: 1
  selector:
    matchLabels:
-     app: boilerplate
+     app: batch-run
  template:
    metadata:
      labels:
-       app: boilerplate
+       app: batch-run
    spec:
      containers:
-       - name: boilerplate
-         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/boilerplate:latest
+       - name: batch-run
+         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/batch-run:latest
          resources:
            limits:
              cpu: "1"
@@ -28,5 +28,16 @@ spec:
              cpu: "1"
              memory: "4Gi"
          ports:
-           - containerPort: 8080
+           - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: batch-run
+spec:
+  ports:
+    - port: 8000
+  selector:
+    app: batch-run
+  clusterIP: None
         
