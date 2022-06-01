@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: model-predict
+ name: API
 spec:
  strategy:
    rollingUpdate:
@@ -11,15 +11,15 @@ spec:
  replicas: 1
  selector:
    matchLabels:
-     app: model-predict
+     app: API
  template:
    metadata:
      labels:
-       app: model-predict
+       app: API
    spec:
      containers:
-       - name: model-predict
-         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/model-predict:latest
+       - name: API
+         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/API:latest
          resources:
            limits:
              cpu: "1"
@@ -29,15 +29,23 @@ spec:
              memory: "4Gi"
          ports:
            - containerPort: 8000
+         env:
+           - name: POSTGRES_USER
+             value: postgres
+           - name: POSTGRES_PASSWORD
+             value: postgres
+           - name: POSTGRES_DB
+             value: atforestry
+           - name: PGDATA
+             value: /var/lib/postgresql/data/pgdata
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: model-predict
+  name: API
 spec:
   ports:
     - port: 8000
   selector:
-    app: model-predict
+    app: API
   clusterIP: None
-        
