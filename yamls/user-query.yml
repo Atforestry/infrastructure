@@ -35,10 +35,11 @@ kind: Service
 metadata:
   name: user-query
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-    - port: 8000
-    nodePort: 30800
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
   selector:
     app: user-query
     
