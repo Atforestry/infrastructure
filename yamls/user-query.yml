@@ -22,11 +22,11 @@ spec:
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/user-query:latest
          resources:
            limits:
-             cpu: "1"
-             memory: "4Gi"
+             cpu: "500m"
+             memory: "512Mi"
            requests:
-             cpu: "1"
-             memory: "4Gi"
+             cpu: "500m"
+             memory: "512Mi"
          ports:
            - containerPort: 8000
 ---

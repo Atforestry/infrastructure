@@ -7,8 +7,8 @@ create-infrastructure:
 	kubectl apply -f ./yamls
 
 deploy-services:
-	kubectl autoscale apply -f ./yamls
-
+	kubectl apply -f ./yamls
+	
 delete-services:
 	kubectl delete -f ./yamls
 

@@ -5,7 +5,7 @@ metadata:
 spec:
  strategy:
    rollingUpdate:
-     maxSurge: 1
+     maxSurge: 2
      maxUnavailable: 1
    type: RollingUpdate
  replicas: 2
@@ -22,11 +22,11 @@ spec:
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/api:latest
          resources:
            limits:
-             cpu: "1"
-             memory: "1Gi"
+             cpu: "500m"
+             memory: "512Mi"
            requests:
-             cpu: "1"
-             memory: "1Gi"
+             cpu: "500m"
+             memory: "512Mi"
          ports:
            - containerPort: 8000
 ---
