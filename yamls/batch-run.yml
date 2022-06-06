@@ -22,10 +22,10 @@ spec:
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/batch-run:latest
          resources:
            limits:
-             cpu: "500m"
+             cpu: "100m"
              memory: "512Mi"
            requests:
-             cpu: "500m"
+             cpu: "100m"
              memory: "512Mi"
          ports:
            - containerPort: 8000

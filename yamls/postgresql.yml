@@ -22,11 +22,11 @@ spec:
          image: postgres:10
          resources:
            limits:
-             cpu: "1"
-             memory: "4Gi"
+             cpu: "100m"
+             memory: "1Gi"
            requests:
-             cpu: "1"
-             memory: "4Gi"
+             cpu: "100m"
+             memory: "1Gi"
          ports:
            - containerPort: 5432
          env:
@@ -44,7 +44,7 @@ spec:
      volumes:
        - name: postgredb
          persistentVolumeClaim:
-           claimName: time-predictions-postgresql-pv
+           claimName: postgres-pv-claim
 ---
 apiVersion: v1
 kind: Service
@@ -56,3 +56,14 @@ spec:
   selector:
     app: postgres
   clusterIP: None
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 300Gi
