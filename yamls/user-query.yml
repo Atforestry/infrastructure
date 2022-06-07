@@ -5,7 +5,7 @@ metadata:
 spec:
  strategy:
    rollingUpdate:
-     maxSurge: 1
+     maxSurge: 2
      maxUnavailable: 1
    type: RollingUpdate
  replicas: 2
@@ -39,7 +39,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8000
+      targetPort: 80
   selector:
     app: user-query
     
