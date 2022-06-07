@@ -1,6 +1,8 @@
 -- postgres
 
-CREATE TABLE IF NOT EXISTS Prediction (
+\connect atforestry
+
+CREATE TABLE IF NOT EXISTS prediction (
   id serial PRIMARY KEY,
   sqbl_longitude double precision NOT NULL,
   sqbl_latitude double precision NOT NULL,
@@ -15,7 +17,7 @@ CREATE TABLE IF NOT EXISTS Prediction (
   updated_at TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-COPY public.prediction (id, sqbl_longitude, sqbl_latitude, sqtr_longitude, sqtr_latitude, prediction, predictiontimestamp, tiff_code, roster, mosaic, created_at, updated_at) FROM stdin;
+COPY prediction (id, sqbl_longitude, sqbl_latitude, sqtr_longitude, sqtr_latitude, prediction, predictiontimestamp, tiff_code, roster, mosaic, created_at, updated_at) FROM stdin;
 1	-52.03125000000001	-3.337953961416485	-51.85546875	-3.1624555302378603	["slash_burn","conventional_mine","selective_logging","primary","agriculture"]	2021-08-01 00:00:00	728-1005	52	ce7bad0f-a4a0-45fd-904b-eb6cc6eee373	2022-06-05 17:02:38.292195	2022-06-05 17:02:38.292195
 2	-52.03125000000001	-3.337953961416485	-51.85546875	-3.1624555302378603	["slash_burn","conventional_mine","selective_logging","primary","agriculture"]	2021-08-01 00:00:00	728-1005	163	ce7bad0f-a4a0-45fd-904b-eb6cc6eee373	2022-06-05 17:02:38.292195	2022-06-05 17:02:38.292195
 3	-52.03125000000001	-3.337953961416485	-51.85546875	-3.1624555302378603	["slash_burn","conventional_mine","primary","agriculture"]	2021-08-01 00:00:00	728-1005	90	ce7bad0f-a4a0-45fd-904b-eb6cc6eee373	2022-06-05 17:02:38.292195	2022-06-05 17:02:38.292195

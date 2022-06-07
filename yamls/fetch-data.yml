@@ -18,7 +18,7 @@ spec:
        app: fetch-data
    spec:
      containers:
-       - name: boilerplate
+       - name: fetch-data
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/fetch-data
          resources:
            limits:
