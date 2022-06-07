@@ -19,7 +19,7 @@ spec:
    spec:
      containers:
        - name: api
-         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/api
+         image: us-central1-docker.pkg.dev/mlops-3/Atforestry/api:latest
          resources:
            limits:
              cpu: "100m"
@@ -35,8 +35,10 @@ kind: Service
 metadata:
   name: api
 spec:
+  type: LoadBalancer
   ports:
-    - port: 8000
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
   selector:
     app: api
-  clusterIP: None
