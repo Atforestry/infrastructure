@@ -2,7 +2,7 @@ create-infrastructure:
 	gcloud container clusters create atforestry-cluster \
     --region "us-central1" \
     --machine-type "e2-standard-4" --disk-type "pd-standard" --disk-size "500" \
-    --num-nodes "2" --node-locations "us-central1-a"
+    --num-nodes "3" --node-locations "us-central1-a"
 	gcloud artifacts repositories create "atforestry-repo" --repository-format=Docker --location=us-central1
 	kubectl apply -f ./yamls
 
