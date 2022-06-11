@@ -8,7 +8,7 @@ spec:
      maxSurge: 1
      maxUnavailable: 1
    type: RollingUpdate
- replicas: 1
+ replicas: 3
  selector:
    matchLabels:
      app: batch-run
@@ -22,10 +22,10 @@ spec:
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/batch-run:latest
          resources:
            limits:
-             cpu: "100m"
+             cpu: "500m"
              memory: "512Mi"
            requests:
-             cpu: "100m"
+             cpu: "500m"
              memory: "512Mi"
          ports:
            - containerPort: 8000
