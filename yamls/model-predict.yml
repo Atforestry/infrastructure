@@ -8,7 +8,7 @@ spec:
      maxSurge: 1
      maxUnavailable: 1
    type: RollingUpdate
- replicas: 2
+ replicas: 3
  selector:
    matchLabels:
      app: model-predict
@@ -22,11 +22,11 @@ spec:
          image: us-central1-docker.pkg.dev/mlops-3/Atforestry/model-predict
          resources:
            limits:
-             cpu: "100m"
-             memory: "512Mi"
+             cpu: "2"
+             memory: "8Gi"
            requests:
-             cpu: "100m"
-             memory: "512Mi"
+             cpu: "2"
+             memory: "8Gi"
          ports:
            - containerPort: 8000
 ---
